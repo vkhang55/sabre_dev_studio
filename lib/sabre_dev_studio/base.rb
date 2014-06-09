@@ -36,7 +36,7 @@ module SabreDevStudio
       client_secret = Base64.strict_encode64(SabreDevStudio.configuration.password)
       credentials   = Base64.strict_encode64("#{client_id}:#{client_secret}")
       headers       = { 'Authorization' => "Basic #{credentials}" }
-      req           = post("#{SabreDevStudio.configuration.uri}/v1/auth/token",
+      req           = post("#{uri}/v1/auth/token",
                             :body        => { :grant_type => 'client_credentials' },
                             :ssl_version => :TLSv1,
                             :verbose     => true,
