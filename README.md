@@ -31,6 +31,7 @@ Configuration block (required, use your credentials):
       c.group    = 'GROUP'
       c.domain   = 'DOMAIN'
       c.password = 'PASSWORD'
+      c.uri      = 'https://api.test.sabre.com'
     end
 
 To see an access token:
