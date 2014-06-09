@@ -31,6 +31,7 @@ module SabreDevStudio
       user          = SabreDevStudio.configuration.user
       group         = SabreDevStudio.configuration.group
       domain        = SabreDevStudio.configuration.domain
+      uri           = SabreDevStudio.configuration.uri
       client_id     = Base64.strict_encode64("V1:#{user}:#{group}:#{domain}")
       client_secret = Base64.strict_encode64(SabreDevStudio.configuration.password)
       credentials   = Base64.strict_encode64("#{client_id}:#{client_secret}")
