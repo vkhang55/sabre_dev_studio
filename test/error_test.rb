@@ -6,11 +6,9 @@ end
 class SabreDevStudio::ErrorTests < Test::Unit::TestCase
   def setup
     SabreDevStudio.configure do |c|
-      c.user     = 'USER'
-      c.group    = 'GROUP'
-      c.domain   = 'DOMAIN'
-      c.password = 'PASSWORD'
-      c.uri      = 'https://api.test.sabre.com'
+      c.client_id     = 'V1:USER:GROUP:DOMAIN'
+      c.client_secret = 'PASSWORD'
+      c.uri           = 'https://api.test.sabre.com'
     end
   end
   def test_canned_response_400

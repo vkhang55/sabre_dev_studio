@@ -12,7 +12,7 @@ module SabreDevStudio
   end
 
   class Configuration
-    attr_accessor :user, :group, :domain, :password, :uri
+    attr_accessor :client_id, :client_secret, :uri
 
     def initialize
     end
@@ -28,12 +28,9 @@ module SabreDevStudio
     end
 
     def self.get_access_token
-      user          = SabreDevStudio.configuration.user
-      group         = SabreDevStudio.configuration.group
-      domain        = SabreDevStudio.configuration.domain
       uri           = SabreDevStudio.configuration.uri
-      client_id     = Base64.strict_encode64("V1:#{user}:#{group}:#{domain}")
-      client_secret = Base64.strict_encode64(SabreDevStudio.configuration.password)
+      client_id     = Base64.strict_encode64(SabreDevStudio.configuration.client_id)
+      client_secret = Base64.strict_encode64(SabreDevStudio.configuration.client_secret)
       credentials   = Base64.strict_encode64("#{client_id}:#{client_secret}")
       headers       = { 'Authorization' => "Basic #{credentials}" }
       req           = post("#{uri}/v1/auth/token",

@@ -27,11 +27,9 @@ Require this gem and whatever other sabre_dev_studio gem(s) that you need.
 Configuration block (required, use your credentials):
 
     SabreDevStudio.configure do |c|
-      c.user     = 'USER'
-      c.group    = 'GROUP'
-      c.domain   = 'DOMAIN'
-      c.password = 'PASSWORD'
-      c.uri      = 'https://api.test.sabre.com'
+      c.client_id     = 'V1:1234:ABCD:XYZ'
+      c.client_secret = 'SeKr1T'
+      c.uri           = 'https://api.test.sabre.com'
     end
 
 To see an access token:
