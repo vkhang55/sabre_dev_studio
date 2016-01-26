@@ -14,16 +14,16 @@ class SabreDevStudio::Base::BaseTests < Test::Unit::TestCase
   end
 
   def test_canned_request_success
-    stub_request(:get, "#{SabreDevStudio.configuration.uri}/v1/shop/themes").
+    stub_request(:get, "#{SabreDevStudio.configuration.uri}/v2/shop/themes").
       to_return(json_response('air_shopping_themes.json'))
-    themes = SabreDevStudio::Base.get('/v1/shop/themes')
+    themes = SabreDevStudio::Base.get('/v2/shop/themes')
     assert_equal 'BEACH', themes['Themes'].first['Theme']
   end
 
   def test_request_object
-    stub_request(:get, "#{SabreDevStudio.configuration.uri}/v1/shop/themes").
+    stub_request(:get, "#{SabreDevStudio.configuration.uri}/v2/shop/themes").
       to_return(json_response('air_shopping_themes.json'))
-    endpoint = '/v1/shop/themes'
+    endpoint = '/v2/shop/themes'
     request  = SabreDevStudio::RequestObject.new(endpoint)
     assert_equal 'self', request.links.first.rel
     assert_equal 'BEACH', request.themes.first.theme
