@@ -35,7 +35,7 @@ module SabreDevStudio
       headers       = { 'Authorization' => "Basic #{credentials}" }
       req           = post("#{uri}/v2/auth/token",
                             :body        => { :grant_type => 'client_credentials' },
-                            :ssl_version => :TLSv1,
+                            :ssl_version => :SSLv23,
                             :verbose     => true,
                             :headers     => headers)
       @@token       = req['access_token']
@@ -53,7 +53,7 @@ module SabreDevStudio
         data = super(
           SabreDevStudio.configuration.uri + path,
           :query       => options[:query],
-          :ssl_version => :TLSv1,
+          :ssl_version => :SSLv23,
           :headers     => headers
         )
         verify_response(data)
